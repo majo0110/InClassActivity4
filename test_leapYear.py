@@ -19,7 +19,7 @@ class testCase_leapYear(unittest.TestCase):
         sys.stdout = capturedOutput
         leapYear.checkLeapYear()
         result = capturedOutput.getvalue()
-        self.assertEqual(result, "2012 is a leap year.")
+        self.assertEqual(result, "2012 is a leap year.\n")
 
     #Inputting an integer as the userInput and isnt a leap year
     numberInput = 20013
@@ -29,7 +29,7 @@ class testCase_leapYear(unittest.TestCase):
         sys.stdout = capturedOutput
         leapYear.checkLeapYear()
         result = capturedOutput.getvalue()
-        self.assertEqual(result, "20013 is not a leap year.")
+        self.assertEqual(result, "20013 is not a leap year.\n")
 
     #Inputting a negative number
     numberInput = -2012
@@ -39,17 +39,17 @@ class testCase_leapYear(unittest.TestCase):
         sys.stdout = capturedOutput
         leapYear.checkLeapYear()
         result = capturedOutput.getvalue()
-        self.assertEqual(result, "-2012 is a leap year.")
+        self.assertEqual(result, "-2012 is a leap year.\n")
 
     #Testing negative edge case
-    numberInput = -400
+    numberInput = -500
     @patch('builtins.input', return_value = numberInput)
     def test_number_neg_edge(self, mock_input):
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         leapYear.checkLeapYear()
         result = capturedOutput.getvalue()
-        self.assertEqual(result, "-400 is not a leap year.")
+        self.assertEqual(result, "-500 is not a leap year.\n")
 
     #Testing negative edge case
     numberInput = -400
@@ -59,7 +59,7 @@ class testCase_leapYear(unittest.TestCase):
         sys.stdout = capturedOutput
         leapYear.checkLeapYear()
         result = capturedOutput.getvalue()
-        self.assertEqual(result, "-400 is a leap year.")
+        self.assertEqual(result, "-400 is a leap year.\n")
 
 
 
